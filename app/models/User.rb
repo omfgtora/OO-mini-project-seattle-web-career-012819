@@ -7,9 +7,10 @@ class User
     def initialize(name)
         @name = name
         @recipes = []
+        
         @@all << self
     end
-    
+
     def self.all
         @@all
     end

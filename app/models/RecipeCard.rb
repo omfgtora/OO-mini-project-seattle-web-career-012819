@@ -5,6 +5,7 @@ class RecipeCard
 
     def initialize(name)
         @@name = name
+        
         @@all << self
     end
 
