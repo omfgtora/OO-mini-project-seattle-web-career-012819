@@ -1,12 +1,13 @@
 class User
     @@all = []
 
-    attr_reader :name
+    attr_reader :name, :allergies
     attr_writer :recipes
 
     def initialize(name)
         @name = name
         @recipes = []
+        @allergies = []
 
         @@all << self
     end
@@ -23,12 +24,10 @@ class User
         # should accept a recipe instance as an argument, as well as a date and rating, and create a new recipe card for this user and the given recipe
     end
 
-    def declare_allergy
+    def declare_allergy(ingredient)
         # should accept an ingredient instance as an argument, and create a new allergen instance for this user and the given ingredient
-    end
-
-    def allergies
-        # should return all of the ingrdients this user is allergic to
+        new_allergy = Allergy.new(ingredient)
+        @allergies << new_allergy
     end
 
     def top_three_recipes

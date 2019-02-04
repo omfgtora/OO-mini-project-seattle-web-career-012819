@@ -1,10 +1,11 @@
 class Recipe
     @@all = []
 
-    attr_reader :name
+    attr_reader :name, :ingredients
 
     def initialize(name)
         @name = name
+        @ingredients = []
 
         @@all << self
     end
@@ -19,17 +20,21 @@ class Recipe
 
     def users
         # should return the user instances who have recipe cards with this recipe
-    end
-
-    def ingredients
-        # should return all of the ingredients in this recipe
+        Users.all.select {|user|
+          user.recipe.include? self
+        }
     end
 
     def allergens
         # should return all of the ingredients in this recipe that are allergens
+        @ingredients.select {|ingredient|
+            Allergen.all.include?(ingredient)
+        }
     end
 
-    def add_ingredients
+    def add_ingredients(ingredients_list)
         # should take an array of ingredient instances as an argument, and associate each of those ingredients with this recipe
+        @ingredients << ingredients_list
+        @ingredients.flatten!
     end
 end

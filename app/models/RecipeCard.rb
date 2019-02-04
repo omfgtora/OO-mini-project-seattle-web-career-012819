@@ -1,3 +1,4 @@
+require 'Date'
 class RecipeCard
     @@all = []
 
