@@ -1,10 +1,10 @@
-class RecipeCard
+class Allergy
     @@all = []
 
     attr_reader :name
 
-    def initialize(name)
-        @@name = name
+    def initialize(ingredient)
+        @ingredient
         @@all << self
     end
 
