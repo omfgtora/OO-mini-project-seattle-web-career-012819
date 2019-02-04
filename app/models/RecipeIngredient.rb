@@ -1,10 +1,11 @@
 class RecipeIngredient
     @@all = []
 
-    attr_reader :name
+    attr_reader :ingredient, :recipe
 
-    def initialize(name)
-        @name = name
+    def initialize(ingredient, recipe)
+        @ingredient = ingredient
+        @recipe = recipe
 
         @@all << self
     end
