@@ -1,11 +1,11 @@
 class Allergy
     @@all = []
 
-    attr_reader :name
+    attr_reader :ingredient
 
     def initialize(ingredient)
         @ingredient
-        
+
         @@all << self
     end
 
